@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="在线图片压缩工具，支持PNG、JPG格式，快速压缩，品质保证">
+    <meta name="keywords" content="图片压缩,在线工具,PNG压缩,JPG压缩">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline' cdn.jsdelivr.net;">
+    <script defer src="assets/js/script.js"></script>
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 标题区域 -->
+        <header>
+            <h1>图片压缩工具</h1>
+            <p>支持PNG、JPG格式，快速压缩，品质保证</p>
+        </header>
+
+        <!-- 上传区域 -->
+        <div class="upload-area" id="dropZone">
+            <input type="file" id="fileInput" accept="image/*" multiple hidden>
+            <div class="upload-content">
+                <svg class="upload-icon" viewBox="0 0 24 24">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+                <p>点击或拖拽图片到这里</p>
+                <p class="sub-text">支持PNG、JPG格式，最多可同时上传10张</p>
+            </div>
+        </div>
+
+        <!-- 预览区域 -->
+        <div class="preview-container" id="previewContainer" style="display: none;">
+            <div class="preview-box">
+                <h3>原图</h3>
+                <div class="image-container">
+                    <img id="originalImage" alt="原图预览">
+                </div>
+                <div class="info">
+                    <span>大小：</span>
+                    <span id="originalSize">0 KB</span>
+                </div>
+            </div>
+
+            <div class="preview-box">
+                <h3>压缩后</h3>
+                <div class="image-container">
+                    <img id="compressedImage" alt="压缩后预览">
+                </div>
+                <div class="info">
+                    <span>大小：</span>
+                    <span id="compressedSize">0 KB</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 批量预览区域 -->
+        <div class="batch-preview" id="batchPreview" style="display: none;">
+            <h3>待处理图片列表</h3>
+            <div class="image-list" id="imageList"></div>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="control-panel" id="controlPanel" style="display: none;">
+            <div class="quality-control">
+                <label for="quality">压缩质量：</label>
+                <input type="range" id="quality" min="0" max="100" value="80">
+                <span id="qualityValue">80%</span>
+            </div>
+            <div class="button-group">
+                <button id="compressBtn" class="primary-btn">压缩图片</button>
+                <button id="downloadBtn" class="download-btn">下载压缩后的图片</button>
+                <button id="downloadAllBtn" class="secondary-btn" style="display: none;">批量下载全部图片</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.0/dist/browser-image-compression.js"></script>
+</body>
+</html> 
